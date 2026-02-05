@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import java.util.List;
 
 @Entity @DiscriminatorValue("BOOK")
-public abstract class BookEntity extends PublicationEntity {
+public class BookEntity extends PublicationEntity {
     private String author;
     public BookEntity() {}
     public BookEntity(String t, double p, int c, String a) { super(t, p, c); this.author = a; }
@@ -18,6 +18,6 @@ public abstract class BookEntity extends PublicationEntity {
         return isbn;
     }
 
-    abstract Book findById(long id);
+    Book findById(long id);
     @Override public String toString() { return "Book{author='" + author + "', " + super.toString() + "}"; }
 }
