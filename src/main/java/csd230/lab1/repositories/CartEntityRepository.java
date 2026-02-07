@@ -1,18 +1,11 @@
 package csd230.lab1.repositories;
 
-import java.util.List;
-import java.util.Optional;
+import csd230.lab1.entities.CartEntity;
+import csd230.lab1.entities.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface CartEntityRepository extends JpaRepository<CartEntity, Long> {
 
-public interface CartEntityRepository<T> {
-
-    Optional<T> findById(Long id);
-
-    List<T> findAll();
-
-    T save(T entity);
-
-
-
-    void deleteById(Long id);
+    // Find the cart belonging to a specific user
+    CartEntity findByUser(UserEntity user);
 }
